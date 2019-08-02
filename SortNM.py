@@ -1,5 +1,10 @@
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import askopenfilename, askdirectory
+import tkinter as tk
+root = tk.Tk()
+root.withdraw()
 ntmfile = askopenfilename()
+
+defdir = askdirectory()
 
 def rechercheFree(filename,word):
     logs = 0
@@ -29,10 +34,10 @@ print(str(bt)+" Instances de "+str(plmnBT)+" trouvées dans "+str(ntmfile))
 print(str(sfr)+" Instances de "+str(plmnSFR)+" trouvées dans "+str(ntmfile))
 
 file = open(ntmfile , 'r')
-file2 = open('20801.ntm' , 'w')
-file3 = open('20810.ntm' , 'w')
-file4 = open('20815.ntm' , 'w')
-file5 = open('20820.ntm' , 'w')
+file2 = open(defdir+'/20801.ntm' , 'w')
+file3 = open(defdir+'/20810.ntm' , 'w')
+file4 = open(defdir+'/20815.ntm' , 'w')
+file5 = open(defdir+'/20820.ntm' , 'w')
 for line in file.readlines():
     if plmnOR in line:
      file2.write(line)
